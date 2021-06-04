@@ -27,12 +27,16 @@ double Calculate(char oper, float num1Func, float num2Func) {
         result = num1Func / num2Func;
     } else if (oper == '%') {
         result = fmod(num1Func, num2Func);
+    } else {
+        result = 0;
+        std::cout << "Invalid operator";
     }
     // return the result back to main()
     return result;
 }
 
 int main() {
+    Greet();
     // define answer and get sign from user
     float answer;
     char sign;
@@ -59,8 +63,10 @@ int main() {
 
         // call the function with the parameters then pring the result
         answer = Calculate(sign, num1, num2);
+        
+        if(answer != 0) {
         std::cout << "Your answer is " << answer << "\n";
-
+        }
     // catch the invalid cases
     } catch (std::invalid_argument) {
         std::cout << "This is not a valid number";
